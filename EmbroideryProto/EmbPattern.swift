@@ -37,7 +37,7 @@ public class EmbPattern {
                 return
             }
             var threadIndex = 0
-            let currIndex = self.threadList.index(of: self.currentBlock.Color)
+            let currIndex = self.threadList.firstIndex(of: self.currentBlock.Color)
             if currIndex == nil || (currIndex! + 1) >= self.threadList.count {
                     let newThread = UIColor(red: CGFloat(Float(arc4random()) / Float(UINT32_MAX)), green: CGFloat(Float(arc4random()) / Float(UINT32_MAX)), blue:CGFloat(Float(arc4random()) / Float(UINT32_MAX)), alpha: 1.0)
                     self.threadList.append(newThread)
@@ -58,7 +58,7 @@ public class EmbPattern {
             if self.currentBlock.Points.count == 0 {
                 return
             }
-            let currIndex = self.threadList.index(of: self.currentBlock.Color)
+            let currIndex = self.threadList.firstIndex(of: self.currentBlock.Color)
             let sb = StitchBlock()
             self.currentBlock = sb
             sb.Color = self.threadList[currIndex!]

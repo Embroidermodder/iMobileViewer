@@ -13,12 +13,12 @@ class StitchView: UIView {
 
     public func setPattern(_ pattern: EmbPattern) {
         self.pattern = pattern
-        self.backgroundColor = UIColor(colorLiteralRed: 0.9, green:0.9, blue: 0.9, alpha: 1.0)
+        self.backgroundColor = UIColor(displayP3Red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
     }
     
     var scale = CGFloat(1.0)
 
-    func changeScale(_ recognizer : UIPinchGestureRecognizer) {
+    @objc func changeScale(_ recognizer : UIPinchGestureRecognizer) {
         switch recognizer.state {
         case .changed, .ended :
             scale *= recognizer.scale
