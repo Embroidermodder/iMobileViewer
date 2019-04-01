@@ -26,7 +26,7 @@ class EmbroideryViewController: UIViewController {
         BinaryHelper.load(url: theurl,
                           completion: {file in
                             var pattern : EmbPattern
-                            let fileextension = String(file.filename.characters.suffix(3)).lowercased()
+                            let fileextension = String(file.filename).suffix(3).lowercased()
                             var reader : FormatProtocol? = nil
                             if fileextension == "exp"  {
                                 reader = FormatExp()
@@ -42,8 +42,9 @@ class EmbroideryViewController: UIViewController {
                             } else {
                                 pattern = EmbPattern()
                             }
-                            self.stitchView.setPattern(pattern)
+                            
                             DispatchQueue.main.async {
+                                self.stitchView.setPattern(pattern)
                                 self.stitchView.setNeedsDisplay()
                             }
         })
